@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<hibernate-configuration
+        xmlns="http://www.hibernate.org/xsd/hibernate-configuration"
+        xsi:schemaLocation="http://www.hibernate.org/xsd/hibernate-configuration hibernate-configuration-4.0.xsd"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<session-factory>
+		<property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+		<property name="hibernate.connection.url">jdbc:mysql://localhost:3306/pms?useUnicode=true&amp;characterEncoding=UTF-8</property>
+		<property name="hibernate.connection.username">root</property>
+		<property name="hibernate.connection.password">root</property>
+
+		<property name="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</property>
+
+		<property name="hibernate.show_sql">true</property>
+		<property name="hibernate.format_sql">true</property>
+
+		<property name="hibernate.hbm2ddl.auto">none</property>
+
+		<property name="hibernate.jdbc.fetch_size">100</property>
+		<property name="hibernate.jdbc.batch_size">30</property>
+
+		<!-- 配置二级缓存 -->
+		<property name="hibernate.cache.use_second_level_cache">true</property>
+		<property name="hibernate.cache.use_query_cache">true</property>
+		<!-- Hibernate4 这里和Hibernate3不一样要特别注意!!! -->
+		<property name="hibernate.cache.provider_class">org.hibernate.cache.EhCacheProvider</property> 
+		
+        <property name="hibernate.cache.region.factory_class">org.hibernate.cache.ehcache.EhCacheRegionFactory</property>
+		<!-- Hibernate3 -->
+		<!-- <property name="hibernate.cache.provider_class">net.sf.ehcache.hibernate.EhCacheProvider</property> -->
+
+		<!-- 配置C3P0 
+		<property name="hibernate.connection.provider_class">org.hibernate.connection.C3P0ConnectionProvider</property>
+		<property name="hibernate.c3p0.max_size">10</property>
+		<property name="hibernate.c3p0.min_size">1</property>
+		<property name="hibernate.c3p0.max_statements">3</property>
+		<property name="hibernate.c3p0.timeout">30</property>
+		<property name="hibernate.c3p0.acquire_increment">1</property>
+		<property name="hibernate.c3p0.idle_test_periodt">10</property>
+		-->
+		<!-- 使用xml配置 
+		<mapping resource="org/springfuncs/domain/Customer.hbm.xml" />
+		-->
+		<!-- 使用注解<mapping class="com.llb.netshop.hibernate.Customer" /> -->
+
+		<mapping class="com.llb.pms.hibernate.Address" />
+		<mapping class="com.llb.pms.hibernate.Department" />
+		<mapping class="com.llb.pms.hibernate.Employee" />
+		<mapping class="com.llb.pms.hibernate.Frame" />
+		<mapping class="com.llb.pms.hibernate.Frametype" />
+		<mapping class="com.llb.pms.hibernate.Lib" />
+		<mapping class="com.llb.pms.hibernate.Permit" />
+		<mapping class="com.llb.pms.hibernate.Project" />
+		<mapping class="com.llb.pms.hibernate.Role" />
+		<mapping class="com.llb.pms.hibernate.Suite" />
+		<mapping class="com.llb.pms.hibernate.Techdomain" />
+		<mapping class="com.llb.pms.hibernate.Template" />
+		<mapping class="com.llb.pms.hibernate.User" />
+		<mapping class="com.llb.pms.hibernate.Variable" />
+
+	</session-factory>
+</hibernate-configuration> 

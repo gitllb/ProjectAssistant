@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sqls>
+<!-- sqlType 常量字段值
+  ARRAY 2003 		DATALINK 70 		LONGVARBINARY -4	STRUCT 2002
+  BIGINT -5 		DATE 91				LONGVARCHAR -1 		TIME 92
+  BINARY -2 		DECIMAL 3			NULL 0				TIMESTAMP 93
+  BIT -7 			DISTINCT 2001		NUMERIC 2 			TINYINT -6
+  BLOB 2004 		DOUBLE 8			OTHER 1111			VARBINARY -3
+  BOOLEAN 16 		FLOAT 6 			REAL 7 				VARCHAR 12 
+  CHAR 1 			INTEGER 4			REF 2006 			
+  CLOB 2005 		JAVA_OBJECT 2000	SMALLINT 5			
+ 
+ -->
+	<sql id="login" class="" >
+		<parameter webName="name" index="" name="name" value="" sqlType="12"  output="" ></parameter>
+		<parameter webName="password" index="" name="password" value="" sqlType="12"  output="" ></parameter>
+		<sqlString>
+			from User u where u.name=:name and u.password=:password
+		</sqlString>
+	</sql>
+	<sql id="loadProject">from Project p where p.display=1</sql>
+</sqls>
